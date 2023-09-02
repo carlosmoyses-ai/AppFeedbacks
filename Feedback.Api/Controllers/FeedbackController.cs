@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Feedback.Api
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     public class FeedbackController : ControllerBase
     {
         private readonly ApiDbContext _dbContext;
@@ -17,14 +17,12 @@ namespace Feedback.Api
         }
 
         [HttpGet]
-        [Route("ReadFeedbacksList")]
         public async Task<IActionResult> GetFeedbacksList()
         {
             return Ok(await _dbContext.Feedbacks.ToListAsync());
         }
 
         [HttpGet]
-        [Route("ReadFeedbackById/{id}")]
         public async Task<IActionResult> GetFeedbackById(int id)
         {
             var feedback = await _dbContext.Feedbacks.FindAsync(id);
@@ -38,8 +36,7 @@ namespace Feedback.Api
         }
 
         [HttpPost]
-        [Route("CreateFeedback")]
-        public async Task<IActionResult> CreateFeedback(FeedbacksModel feedback)
+        public async Task<IActionResult> PostFeedback(FeedbacksModel feedback)
         {
             _dbContext.Feedbacks.Add(feedback);
             await _dbContext.SaveChangesAsync();
@@ -48,7 +45,6 @@ namespace Feedback.Api
         }
 
         [HttpPut]
-        [Route("UpdateFeedback/{id}")]
         public async Task<IActionResult> UpdateFeedback(int id, FeedbacksModel feedback)
         {
             if (id != feedback.IdFeedback)
@@ -63,7 +59,6 @@ namespace Feedback.Api
         }
 
         [HttpDelete]
-        [Route("DeleteFeedback/{id}")]
         public async Task<IActionResult> DeleteFeedback(int id)
         {
             var feedback = await _dbContext.Feedbacks.FindAsync(id);
