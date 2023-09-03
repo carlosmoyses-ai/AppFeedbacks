@@ -9,7 +9,7 @@ public class ApiDbContext : DbContext
     {     
     }
 
-    public DbSet<FeedbacksModel> Feedbacks { get; set; }
+    public DbSet<FeedbackModel> Feedbacks { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
