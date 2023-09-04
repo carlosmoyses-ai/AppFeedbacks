@@ -1,0 +1,40 @@
+@page
+@model Feedback.RazorPages.Pages.Feedbacks.CreateModel
+@{
+    ViewData["Title"] = "Create";
+}
+<form method="post" class="form">
+    <div class="form-group">
+        <h1>Criar Feedback</h1>
+        <div asp-validation-summary="ModelOnly"></div>
+        <input type="hidden" asp-for="Feedback.IdFeedback" />
+        <div class="form-group">
+            <label asp-for="Feedback.NomeCliente" class="form-label">Nome Cliente</label>
+            <input asp-for="Feedback.NomeCliente" class="form-control nome email" />
+            <span asp-validation-for="Feedback.NomeCliente" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Feedback.EmailCliente" class="form-label">Email</label>
+            <input asp-for="Feedback.EmailCliente" type="email" class="form-control" />
+            <span asp-validation-for="Feedback.EmailCliente" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Feedback.DataFeedback" class="form-label">Data</label>
+            <input asp-for="Feedback.DataFeedback" type="date" class="form-control" />
+            <span asp-validation-for="Feedback.DataFeedback" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Feedback.Comentario" class="form-label"></label><br>
+            <textarea asp-for="Feedback.Comentario" class="form-textarea"></textarea>
+            <span asp-validation-for="Feedback.Comentario" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Feedback.Avaliacao" class="form-label"></label>
+            <input asp-for="Feedback.Avaliacao" type="number" class="input" />
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Salvar" />
+            <a asp-page="/Feedbacks/View" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </div>
+</form>
