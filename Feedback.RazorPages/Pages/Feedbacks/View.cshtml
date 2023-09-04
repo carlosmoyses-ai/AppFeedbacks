@@ -1,0 +1,46 @@
+@page
+@model Feedback.RazorPages.Pages.Feedbacks.ViewModel
+@{
+    ViewData["Title"] = "View";
+    Layout = "_Layout";
+}
+
+<div class="container feedback__index">
+    <a asp-page="/Feedbacks/Create" class="btn btn-primary">Criar feedback</a>
+
+    <table class="table table-striped">
+        <thead class="thead">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.FeedbackList[0].NomeCliente)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.FeedbackList[0].EmailCliente)</th>
+                <th scope="col" class="comentario">@Html.DisplayNameFor(model => model.FeedbackList[0].Comentario)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.FeedbackList[0].Avaliacao)</th>
+                <th scope="col">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var feedbackModel in Model.FeedbackList)
+            {
+                <tr>
+                    <th scope="row">@Html.DisplayFor(model => feedbackModel.IdFeedback)</th>
+                    <td>@Html.DisplayFor(model => feedbackModel.NomeCliente)</td>
+                    <td>@Html.DisplayFor(model => feedbackModel.EmailCliente)</td>
+                    <td class="comentario">@Html.DisplayFor(model => feedbackModel.Comentario)</td>
+                    <td>@Html.DisplayFor(model => feedbackModel.Avaliacao)</td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@feedbackModel.IdFeedback">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                        <a asp-page="./Details" asp-route-id="@feedbackModel.IdFeedback">
+                            <i class="bi bi-binoculars"></i>
+                        </a>
+                        <a asp-page="./Delete" asp-route-id="@feedbackModel.IdFeedback">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
