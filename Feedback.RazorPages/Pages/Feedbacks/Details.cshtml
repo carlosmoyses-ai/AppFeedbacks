@@ -1,0 +1,34 @@
+@page "{id:int}"
+@model Feedback.RazorPages.Pages.Feedbacks.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container">
+    <h1>Detalhes do Feedback selecionado</h1>
+
+    <div class="">
+        <p>
+            <strong>Nome Cliente:</strong>
+            @Model.Feedback.NomeCliente
+        </p>
+        <p>
+            <strong>Email:</strong>
+            @Model.Feedback.EmailCliente
+        </p>
+        <p>
+            <strong>Data:</strong>
+            @Model.Feedback.DataFeedback
+        </p>
+        <p>
+            <strong>Comentário:</strong>
+            @Model.Feedback.Comentario
+        </p>
+        <p>
+            <strong>Avaliação:</strong>
+            @Model.Feedback.Avaliacao
+        </p>
+
+        <a asp-page="/Feedbacks/View" class="btn btn-primary">Voltar</a>
+    </div>
+</div>
