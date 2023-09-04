@@ -15,6 +15,8 @@ A aplicação deve permitir que os usuários insiram seus feedbacks através de 
 
 ## Execução
 
-Na pasta solução: 
-    - dotnet watch run --project .\Feedback.Api\
-    - dotnet watch run --project .\Feedback.RazorPages\
+Na pasta da solução:
+
+  - dotnet watch run --project .\Feedback.Api\
+  - 
+  - dotnet watch run --project .\Feedback.RazorPages\
