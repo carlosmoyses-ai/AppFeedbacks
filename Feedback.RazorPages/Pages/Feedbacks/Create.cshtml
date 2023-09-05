@@ -29,10 +29,22 @@
             <span asp-validation-for="Feedback.Comentario" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Feedback.Avaliacao" class="form-label"></label>
-            <input asp-for="Feedback.Avaliacao" type="number" class="input" />
+            <label asp-for="Feedback.Avaliacao" class="form-label"></label><br>
+            <ul class="rate-area">
+                @Html.RadioButtonFor(model => model.Feedback.Avaliacao,"5", new { id="5-star", name="rating", @class ="rate-area" })
+                <label for="5-star" title="Muito satisfeito">5</label>
+                @Html.RadioButtonFor(model => model.Feedback.Avaliacao,"4", new { id="4-star", name="rating", @class ="rate-area" })
+                <label for="4-star" title="Satisfeito">4</label>
+                @Html.RadioButtonFor(model => model.Feedback.Avaliacao,"3", new { id="3-star", name="rating", @class ="rate-area" })
+                <label for="3-star" title="Imparcial">3</label>
+                @Html.RadioButtonFor(model => model.Feedback.Avaliacao,"2", new { id="2-star", name="rating", @class ="rate-area" })
+                <label for="2-star" title="Insatisfeito">2</label>
+                @Html.RadioButtonFor(model => model.Feedback.Avaliacao,"1", new { id="1-star", name="rating", @class ="rate-area" })
+                <label for="1-star" title="Muito Insatisfeito">1</label>
+                <span asp-validation-for="Feedback.Avaliacao" class="text-danger"></span>
+            </ul>
         </div>
-        <div class="form-group">
+        <div class="form-group botao">
             <input type="submit" class="btn btn-primary" value="Salvar" />
             <a asp-page="/Feedbacks/View" class="btn btn-secondary">Cancelar</a>
         </div>
